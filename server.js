@@ -4,7 +4,8 @@ const requireDir = require('require-dir')
 
 // Iniciando o App
 const app = express();
-const port = 3001;
+// Permitir que eu envie dados para aplicação no formato JSON
+app.use(express.json());
 
 // Iniciando o DB
 mongoose.connect(
@@ -20,4 +21,4 @@ requireDir('./src/models');
 // Rotas
 app.use('/api', require('./src/routes'));
 
-app.listen(port);
+app.listen(3001);
